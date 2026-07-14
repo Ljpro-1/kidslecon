@@ -1,0 +1,515 @@
+/* ==========================================================================
+   1. ARCHITECTURE ET THEME GAMING PRO (NIVEAU 10)
+   ========================================================================== */
+:root {
+    --bg-main: #f0f4f9;
+    --primary: #ff5a5f;      /* Rouge corail éducatif */
+    --secondary: #00b4d8;    /* Bleu turquoise immersif */
+    --success: #2ec4b6;      /* Vert menthe ludique */
+    --warning: #ffb703;      /* Jaune ambre premium */
+    --madagascar: #9c27b0;   /* Violet culturel */
+    --dark: #0f172a;         /* Ardoise profonde */
+    --white: #ffffff;
+    --font-title: 'Fredoka', sans-serif;
+    --font-body: 'Quicksand', sans-serif;
+    
+    /* Système d'ombres 3D interactives */
+    --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+    
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 12px;
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Arrière-plan graphique de niveau applicatif */
+.bg-decor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.25;
+}
+.b1 { width: 40vw; height: 40vw; background: #ffccd5; top: -10%; right: -5%; }
+.b2 { width: 50vw; height: 50vw; background: #caf0f8; bottom: -10%; left: -10%; }
+
+/* ==========================================================================
+   2. HEADER PREMIUM (TOP BAR STRUCTURE)
+   ========================================================================== */
+.game-header {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background: var(--white);
+    padding: 16px 24px;
+    box-shadow: var(--shadow-sm);
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* Haut à gauche : Zone Élève */
+.player-zone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-self: start;
+}
+.player-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), #ff7b7f);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(255, 90, 95, 0.2);
+}
+.player-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 140px;
+}
+
+/* Haut au Centre : Zone Score XP */
+.credit-zone {
+    justify-self: center;
+    background: #fff8e1;
+    border: 2px solid var(--warning);
+    padding: 6px 16px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 0px rgba(255, 183, 3, 0.15);
+}
+.xp-icon {
+    font-size: 1.2rem;
+    animation: pulseXP 2s infinite ease-in-out;
+}
+.xp-text {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #b7791f;
+}
+
+/* Haut à Droite : Zone Étoiles */
+.score-zone {
+    justify-self: end;
+    background: #e0f7fa;
+    border: 2px solid var(--secondary);
+    padding: 6px 16px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 0px rgba(0, 180, 216, 0.15);
+}
+.score-counter {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #007791;
+}
+
+/* ==========================================================================
+   3. CONTENEUR & GRILLE DES MATIERES (INTERFACE JEUX)
+   ========================================================================== */
+.game-container {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.welcome-title {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 32px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Structure adaptative mobile-first */
+    gap: 20px;
+    width: 100%;
+}
+
+/* Bouton Tactile Tactique 3D */
+.game-card-btn {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--white);
+    border: none;
+    padding: 24px 20px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+}
+
+.btn-emoji {
+    font-size: 2.2rem;
+    transition: transform 0.2s ease;
+}
+
+/* Profils colorimétriques 3D */
+.btn-operation { background-color: var(--primary); box-shadow: 0 8px 0px #cc484c, var(--shadow-md); }
+.btn-operation:hover { background-color: #ff6e72; transform: translateY(2px); box-shadow: 0 6px 0px #cc484c; }
+
+.btn-probleme { background-color: var(--secondary); box-shadow: 0 8px 0px #0090ad, var(--shadow-md); }
+.btn-probleme:hover { background-color: #1ec2e6; transform: translateY(2px); box-shadow: 0 6px 0px #0090ad; }
+
+.btn-francais { background-color: var(--success); box-shadow: 0 8px 0px #229c91, var(--shadow-md); }
+.btn-francais:hover { background-color: #3ad1c3; transform: translateY(2px); box-shadow: 0 6px 0px #229c91; }
+
+.btn-madagascar { background-color: var(--madagascar); box-shadow: 0 8px 0px #7b1fa2, var(--shadow-md); }
+.btn-madagascar:hover { background-color: #ba68c8; transform: translateY(2px); box-shadow: 0 6px 0px #7b1fa2; }
+
+/* Animation d'enfoncement physique au clic */
+.game-card-btn:active {
+    transform: translateY(6px) !important;
+    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2) !important;
+}
+.game-card-btn:hover .btn-emoji {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* ==========================================================================
+   4. ADAPTATION MEDIA QUERIES (MEDIA SIZES)
+   ========================================================================== */
+
+/* Écrans intermédiaires et larges (Tablettes, PC) */
+@media (min-width: 480px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* Grille stable sur deux blocs */
+        gap: 24px;
+    }
+    .welcome-title { font-size: 2.2rem; }
+}
+
+/* Téléphones très compacts */
+@media (max-width: 400px) {
+    .game-header { padding: 12px 14px; }
+    .player-name { max-width: 80px; font-size: 0.95rem; }
+    .credit-zone, .score-zone { padding: 4px 10px; }
+    .xp-text, .score-counter { font-size: 0.95rem; }
+    .game-card-btn { padding: 18px 12px; font-size: 1.1rem; }
+    .btn-emoji { font-size: 1.8rem; }
+}
+
+@keyframes pulseXP {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+
+.back-home-btn{
+
+    display:block;
+
+    margin:25px auto;
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:linear-gradient(135deg,#4776E6,#8E54E9);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+}
+
+
+.back-home-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* ================================= */
+/* ABONNEMENT PREMIUM PRO */
+/* ================================= */
+
+.subscription-zone {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* Bouton abonnement */
+
+#subscription-btn {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+    min-width: 150px;
+
+    padding: 10px 15px;
+
+
+    background:
+    linear-gradient(
+        145deg,
+        #fff3a3,
+        #ffb300
+    );
+
+
+    border: 2px solid rgba(255,255,255,0.7);
+
+
+    border-radius: 20px;
+
+
+    color: #4a3000;
+
+
+    cursor: pointer;
+
+
+    box-shadow:
+
+    0 8px 20px rgba(255,179,0,0.35),
+
+    inset 0 2px 5px rgba(255,255,255,0.8);
+
+
+    transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+
+
+    animation:
+    premiumPulse 3s infinite;
+
+}
+
+
+
+/* Texte principal */
+
+.sub-title {
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+
+}
+
+
+
+/* Date */
+
+.sub-date {
+
+    margin-top: 5px;
+
+
+    font-size: 16px;
+
+
+    font-weight: 1000;
+
+
+    color: #7a4300;
+
+}
+
+
+
+/* Effet */
+
+#subscription-btn:hover {
+
+    transform: translateY(-4px);
+
+
+    box-shadow:
+
+    0 12px 25px rgba(255,179,0,0.45);
+
+}
+
+
+
+/* Animation */
+
+@keyframes premiumPulse {
+
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+
+    50% {
+
+        transform: scale(1.05);
+
+    }
+
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+
+    #subscription-btn {
+
+        min-width: 120px;
+
+        padding: 8px 10px;
+
+    }
+
+
+    .sub-title {
+
+        font-size: 10px;
+
+    }
+
+
+    .sub-date {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+.install-btn{
+
+
+background:
+linear-gradient(
+135deg,
+#00b074,
+#4776E6
+);
+
+
+color:white;
+
+border:none;
+
+padding:15px 25px;
+
+border-radius:25px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+
+box-shadow:
+
+0 5px 15px rgba(0,0,0,.2);
+
+
+margin:15px auto;
+
+display:block;
+
+}
+
+
+.install-btn:hover{
+
+transform:scale(1.05);
+
+}
