@@ -1,76 +1,190 @@
 <!DOCTYPE html>
-<html lang="mg">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zah ko ianatra - Lalao & Fianarana</title>
+
+    <title>Zah ko ianatra - Learning Game</title>
+
     <link rel="manifest" href="manifest.json">
-    <!-- Polices éducatives et gaming de niveau 10 -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    <!-- Liaison avec le fichier de style externe -->
+
+    <!-- Educational & Gaming Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
     <link rel="stylesheet" href="page2.css">
 </head>
+
+
 <body>
 
-    <!-- Arrière-plan décoratif et immersif -->
-    <div class="bg-decor">
-        <div class="circle b1"></div>
-        <div class="circle b2"></div>
+
+<!-- Decorative Background -->
+<div class="bg-decor">
+    <div class="circle b1"></div>
+    <div class="circle b2"></div>
+</div>
+
+
+
+<!-- Gaming Top Bar -->
+<header class="game-header">
+
+
+    <!-- Player Profile -->
+    <div class="player-zone">
+
+        <div class="player-avatar" id="player-avatar">
+            ?
+        </div>
+
+        <div class="player-name" id="player-name">
+            ...
+        </div>
+
     </div>
 
-    <!-- Barre d'état Gaming Supérieure (Top Bar) -->
-    <header class="game-header">
-        <!-- Gauche : Profil de l'enfant -->
-        <div class="player-zone">
-            <div class="player-avatar" id="player-avatar">?</div>
-            <div class="player-name" id="player-name">...</div>
-        </div>
 
-        <!-- Centre : Crédit XP Fixe -->
-        <div class="credit-zone">
-            <span class="xp-icon">⚡</span>
-            <span class="xp-text">70 XP</span>
-        </div>
-<div class="subscription-zone">
-    
 
-</div>
-        <!-- Droite : Compteur de Score Étoiles -->
+    <!-- XP Counter -->
+    <div class="credit-zone">
 
-    </header>
+        <span class="xp-icon">
+            ⚡
+        </span>
 
-    <!-- Zone Centrale des Activités Éducatives -->
-    <main class="game-container">
-        <h2 class="welcome-title">includes lesons, exercices and answers  🚀</h2>
+        <span class="xp-text">
+            70 XP
+        </span>
 
-        <div class="menu-grid">
-            <!-- Bouton 1 : Opération (MODIFIÉ POUR LA REDIRECTION) -->
-<button class="game-card-btn btn-operation" data-game="Opération" onclick="window.location.href='operation.html'">
-                <span class="btn-emoji">➕</span>
-                <span class="btn-label">Opération</span>
-            </button>
-            <!-- Bouton 2 : Problème -->
-           <!-- Bouton 2 : Problème -->
-<button class="game-card-btn btn-probleme" data-game="Problème" onclick="window.location.href='problem.html'">
-    <span class="btn-emoji">🧩</span>
-    <span class="btn-label">Problème</span>
-</button>
+    </div>
+
+
+
+    <!-- Subscription Area -->
+    <div class="subscription-zone">
+
+    </div>
+
+
+</header>
 
 
 
 
 
-
-        </div>
-    </main>
-    <!-- Bouton retour accueil -->
+<!-- Main Educational Area -->
+<main class="game-container">
 
 
 
+    <h2 class="welcome-title">
+        🚀 Learn, Practice & Master Your Skills
+    </h2>
 
 
-<!-- Code de la page -->
+
+    <p class="project-description">
+
+        Includes interactive lessons, exercises, answers, 
+        and smart learning tools.
+
+        <br><br>
+
+
+        ✨ Continuous improvement, personalization, and 
+        custom features developed according to your formulas 
+        and requirements.
+
+        <br><br>
+
+
+        📱 Transformation into a complete Android APK application.
+
+        <br><br>
+
+
+        ⚡ Full offline version with optimized performance 
+        and reliable access anywhere.
+
+        <br><br>
+
+
+        💎 Custom development available on request through 
+        Upwork with <strong>Mr. Fankalazana</strong>.
+
+    </p>
+
+
+
+
+
+    <!-- Activity Menu -->
+
+    <div class="menu-grid">
+
+
+
+        <!-- Operation Button -->
+
+        <button 
+        class="game-card-btn btn-operation" 
+        data-game="Operation"
+        onclick="window.location.href='operation.html'">
+
+            <span class="btn-emoji">
+                ➕
+            </span>
+
+            <span class="btn-label">
+                Operation
+            </span>
+
+        </button>
+
+
+
+
+
+        <!-- Problem Button -->
+
+        <button 
+        class="game-card-btn btn-probleme" 
+        data-game="Problem"
+        onclick="window.location.href='problem.html'">
+
+
+            <span class="btn-emoji">
+                🧩
+            </span>
+
+
+            <span class="btn-label">
+                Problem
+            </span>
+
+
+        </button>
+
+
+
+    </div>
+
+
+
+</main>
+
+
+
+
+
+
+<!-- Page Script -->
+
 <script src="page2.js"></script>
 
+
 </body>
+
 </html>
