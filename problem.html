@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GéoPrimaire - Résolution de Problèmes</title>
+
+<link rel="stylesheet" href="problem.css">
+
+</head>
+
+
+<body>
+
+
+<header class="main-header">
+    
+    
+    <button 
+class="btn-home"
+onclick="window.location.href='index.html'">
+
+← Retour 
+
+</button>
+
+    <div class="logo">
+        📐 Géo<span>Primaire</span>
+    </div>
+
+    <p class="subtitle">
+        Apprendre la géométrie en s'amusant
+    </p>
+
+</header>
+
+
+
+<main class="container">
+
+
+
+<section id="menu-screen" class="screen active">
+
+
+<h2>
+Choisis une forme géométrique pour commencer :
+</h2>
+
+
+
+<div class="shape-grid">
+
+
+
+<button 
+class="shape-card shape-button"
+data-shape="carre"
+onclick="selectShape('carre')">
+
+    <div class="shape-icon square"></div>
+
+    <span>
+    Carré
+    </span>
+
+</button>
+
+
+
+
+
+<button 
+class="shape-card shape-button"
+data-shape="rectangle"
+onclick="selectShape('rectangle')">
+
+    <div class="shape-icon rectangle"></div>
+
+    <span>
+    Rectangle
+    </span>
+
+</button>
+
+
+
+
+
+
+
+
+
+
+
+<button 
+class="shape-card shape-button"
+data-shape="parallelogramme"
+onclick="selectShape('parallelogramme')">
+
+    <div class="shape-icon parallelogram"></div>
+
+    <span>
+    Parallélogramme
+    </span>
+
+</button>
+
+
+
+
+
+<button 
+class="shape-card shape-button"
+data-shape="trapeze"
+onclick="selectShape('trapeze')">
+
+    <div class="shape-icon trapezoid"></div>
+
+    <span>
+    Trapèze
+    </span>
+
+</button>
+
+
+
+
+
+<button 
+class="shape-card shape-button"
+data-shape="cercle"
+onclick="selectShape('cercle')">
+
+    <div class="shape-icon circle"></div>
+
+    <span>
+    Cercle
+    </span>
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section id="choice-screen" class="screen">
+
+
+<button 
+class="btn-back"
+onclick="showScreen('menu-screen')">
+
+← Retour au menu
+
+</button>
+
+
+
+<h2 id="choice-title">
+Forme sélectionnée
+</h2>
+
+
+
+<div class="choice-buttons">
+
+
+<button 
+class="btn-choice btn-lesson"
+onclick="startLesson()">
+
+📖 Voir la Leçon
+
+</button>
+
+
+
+<button 
+class="btn-choice btn-exercise"
+onclick="startExercise()">
+
+✏️ Faire un Exercice
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="lesson-screen" class="screen">
+
+
+<button 
+class="btn-back"
+onclick="showScreen('choice-screen')">
+
+← Retour
+
+</button>
+
+
+
+
+<div class="card">
+
+
+<h2 id="lesson-title">
+Leçon
+</h2>
+
+
+
+<div class="lesson-content">
+
+
+<div class="lesson-visual">
+
+
+<div id="lesson-shape-draw">
+
+</div>
+
+
+</div>
+
+
+
+
+<div 
+id="lesson-text"
+class="lesson-text">
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+<section id="exercise-screen" class="screen">
+
+
+<button 
+class="btn-back"
+onclick="showScreen('choice-screen')">
+
+← Abandonner
+
+</button>
+
+
+
+
+<div class="exercise-layout">
+
+
+
+<div class="card statement-card">
+
+
+<span class="badge">
+
+Problème concret
+
+</span>
+
+
+
+<p 
+id="exercise-statement"
+class="statement-text">
+
+Chargement du problème...
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="card response-card">
+
+
+
+<form id="exercise-form">
+
+
+
+
+
+
+<div class="question-block">
+
+
+<h3 id="q1-text">
+
+1. Calcul de la mesure géométrique
+
+</h3>
+
+
+
+
+
+<div class="input-group">
+
+
+<label>
+
+Étape 1 : Écris la formule littérale :
+
+</label>
+
+
+
+<div class="formula-field">
+
+
+<span 
+class="formula-prefix"
+id="q1-prefix-f">
+
+P =
+
+</span>
+
+
+
+<input 
+type="text"
+id="q1-formula"
+
+autocomplete="off">
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="input-group">
+
+
+<label>
+
+Étape 2 : Remplace par les chiffres :
+
+</label>
+
+
+
+<div class="formula-field">
+
+
+<span 
+class="formula-prefix"
+id="q1-prefix-c">
+
+P =
+
+</span>
+
+
+
+<input 
+type="text"
+id="q1-calc"
+
+autocomplete="off">
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="input-group">
+
+
+<label>
+
+Étape 3 : Résultat final :
+
+</label>
+
+
+
+<div class="formula-field">
+
+
+<span 
+class="formula-prefix"
+id="q1-prefix-r">
+
+P =
+
+</span>
+
+
+
+<input 
+type="text"
+id="q1-res"
+placeholder="Résultat"
+inputmode="decimal"
+autocomplete="off">
+
+
+
+<span 
+class="unit-label"
+id="q1-unit">
+
+m
+
+</span>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<hr class="separator">
+
+
+
+
+
+
+
+<div class="question-block">
+
+
+<h3 id="q2-text">
+
+2. Calcul complémentaire
+
+</h3>
+
+
+
+
+
+
+<div class="input-group">
+
+
+<label>
+
+Étape 1 : Écris la formule :
+
+</label>
+
+
+
+<div class="formula-field">
+
+
+<span class="formula-prefix">
+
+Pt =
+
+</span>
+
+
+
+<input 
+type="text"
+id="q2-formula"
+placeholder="Formule"
+autocomplete="off">
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="input-group">
+
+
+<label>
+
+Étape 2 : Calcul :
+
+</label>
+
+
+
+<div class="formula-field">
+
+
+<span class="formula-prefix">
+
+Pt =
+
+</span>
+
+
+
+<input 
+type="text"
+id="q2-calc"
+placeholder="Calcul"
+autocomplete="off">
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="input-group">
+
+
+<label>
+
+Étape 3 : Résultat :
+
+</label>
+
+
+
+<div class="formula-field">
+
+
+<span class="formula-prefix">
+
+Pt =
+
+</span>
+
+
+
+<input 
+type="text"
+id="q2-res"
+placeholder="Résultat"
+inputmode="decimal">
+
+
+
+<span class="unit-label">
+
+Ar
+
+</span>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<button 
+type="submit"
+class="btn-submit">
+
+🚀 Vérifier mes réponses
+
+</button>
+
+
+
+
+
+</form>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<div 
+id="result-modal"
+class="modal">
+
+
+
+<div class="modal-content">
+
+
+
+<div id="modal-status-icon">
+
+</div>
+
+
+
+
+<h2 id="modal-title">
+
+Résultat
+
+</h2>
+
+
+
+
+<div id="modal-body">
+
+</div>
+
+
+
+
+<div 
+id="modal-buttons"
+class="modal-actions">
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+</main>
+
+
+
+
+
+<script src="problem.js"></script>
+
+
+</body>
+
+
+</html>
