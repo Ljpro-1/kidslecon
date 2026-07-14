@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zah ko ianatra - Opérations</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="operation.css">
+</head>
+
+<body>
+    
+    <div class="bg-decor">
+        <div class="circle b1"></div>
+        <div class="circle b2"></div>
+    </div>
+    
+    <!-- HEADER -->
+    <header class="operation-header">
+        <button class="btn-back" onclick="window.location.href='index.html'">⬅ Retour</button>
+        <h1 class="page-title">Les Opérations</h1>
+        <div class="xp-badge">⚡ 70 XP</div>
+    </header>
+    
+    <main class="operation-container">
+        
+        <!-- MENU OPERATIONS -->
+        <section id="menu-operations" class="menu-grid">
+            <button class="op-main-btn btn-add" onclick="choisirOperation('addition')">
+                ➕ Addition
+            </button>
+            
+            <button class="op-main-btn btn-sub" onclick="choisirOperation('soustraction')">
+                ➖ Soustraction
+            </button>
+            
+            <button class="op-main-btn btn-mul" onclick="choisirOperation('multiplication')">
+                ✖ Multiplication
+            </button>
+            
+            <button class="op-main-btn btn-div" onclick="choisirOperation('division')">
+                ➗ Division
+            </button>
+        </section>
+        
+        <!-- MENU MODE -->
+        <section id="menu-modes" class="mode-container hidden">
+            <button class="btn-back-menu" onclick="retourMenuOperations()">⬅ Changer de calcul</button>
+            <h2 id="selected-op-title">Calcul choisi</h2>
+            
+            <div class="mode-grid">
+                <button class="mode-btn btn-lecon" onclick="ouvrirMode('lecon')">
+                    📚 Leçon
+                </button>
+                
+                <button class="mode-btn btn-exercice" onclick="ouvrirMode('exercice')">
+                    📝 Exercices
+                </button>
+            </div>
+        </section>
+        
+        <!-- ZONE AFFICHAGE -->
+        <section id="zone-affichage" class="content-card hidden">
+            
+            <button class="btn-close-zone" onclick="retourMenuModes()">⬅ Retour</button>
+            
+            <!-- LEÇON -->
+            <div id="content-lecon" class="hidden">
+                <h3 id="lecon-title">Leçon</h3>
+                
+                <div id="lecon-visual-box"></div>
+                
+                <button class="btn-action-video" id="btn-play-video">
+                    Voir l'explication 🎬
+                </button>
+            </div>
+            
+            <!-- EXERCICE -->
+            <div id="content-exercice" class="hidden">
+                
+                <div class="exercise-box">
+                    
+                    <!-- SCORE -->
+                    <div class="exercise-score-badge">
+                        ⭐ Score : <span id="exercise-score-val">0</span>
+                    </div>
+                    
+                    <!-- QUESTION -->
+                    <div class="question-display" id="question-text">
+                        0 + 0 = ?
+                    </div>
+                    
+                    <!-- FORM -->
+                    <form id="exercise-form" onsubmit="validerReponse(event)">
+                        <input type="number" id="user-answer" placeholder="Écris ta réponse..." required autocomplete="off">
+                        
+                        <button type="submit" class="btn-submit-answer">
+                            Vérifier 🚀
+                        </button>
+                    </form>
+                    
+                    <!-- FEEDBACK -->
+                    <div id="exercise-feedback" class="feedback-msg"></div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
+    </main>
+    
+    <script src="operation.js"></script>
+   
+</body>
+
+</html>
